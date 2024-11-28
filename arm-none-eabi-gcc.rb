@@ -15,4 +15,8 @@ class ArmNoneEabiGcc < Formula
     (prefix/"gcc").install Dir["./*"]
     Dir.glob(prefix/"gcc/bin/*") { |file| bin.install_symlink file }
   end
+
+  test do
+    system "#{bin}/arm-none-eabi-gcc", "--version"
+  end
 end
